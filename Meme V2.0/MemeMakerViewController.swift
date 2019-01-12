@@ -33,14 +33,14 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     let textStyles:[String : Any] = [
-        NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
-        NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
-        NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedStringKey.strokeWidth.rawValue : -3,
+        NSAttributedString.Key.strokeColor.rawValue : UIColor.black,
+        NSAttributedString.Key.foregroundColor.rawValue : UIColor.white,
+        NSAttributedString.Key.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.strokeWidth.rawValue : -3,
         ]
     
     func configTextField(text:String, textField:UITextField) {
-        textField.defaultTextAttributes = textStyles
+        textField.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(textStyles)
         textField.textAlignment = .center
         textField.text! = text
         textField.delegate = textDelegate
@@ -61,7 +61,7 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
-    func presentImageViewWithSource(sourceType: UIImagePickerControllerSourceType) {
+    func presentImageViewWithSource(sourceType: UIImagePickerController.SourceType) {
         let image = UIImagePickerController()
         image.sourceType = sourceType
         image.delegate = self
@@ -69,11 +69,11 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func subscribeToKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -84,7 +84,7 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
     
@@ -100,8 +100,11 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let picker = info[UIImagePickerControllerOriginalImage] as? UIImage{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if let picker = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage{
             imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = picker
         }
@@ -164,4 +167,19 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func cancelButton(_ sender: Any) {
            _ =  navigationController?.popToRootViewController(animated: true)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

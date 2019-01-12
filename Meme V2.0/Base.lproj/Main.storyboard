@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eEL-3M-2KG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eEL-3M-2KG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Meme App-->
         <scene sceneID="xSy-MO-hXm">
             <objects>
-                <tabBarController id="eEL-3M-2KG" sceneMemberID="viewController">
+                <tabBarController title="Meme App" id="eEL-3M-2KG" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DsU-Ui-JXN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="193" y="-280"/>
         </scene>
-        <!--Collection-->
+        <!--Meme App-->
         <scene sceneID="mRx-TU-YQH">
             <objects>
-                <navigationController id="0y9-AV-2Gq" sceneMemberID="viewController">
+                <navigationController title="Meme App" id="0y9-AV-2Gq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collection" image="collection_30x30" landscapeImage="collection_30x30" id="6LD-Bh-Mim"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ubS-kg-9OH">
@@ -48,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1001" y="94"/>
         </scene>
-        <!--Meme Table View Controller-->
+        <!--Meme App-->
         <scene sceneID="q2y-eb-JIY">
             <objects>
-                <tableViewController id="2ID-50-wuU" customClass="MemeTableViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Meme App" id="2ID-50-wuU" customClass="MemeTableViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i0x-i2-l0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1909.5999999999999" y="-718.29085457271367"/>
         </scene>
-        <!--Table-->
+        <!--Meme App-->
         <scene sceneID="b0W-yQ-2Fl">
             <objects>
-                <navigationController id="fc6-HY-6YY" sceneMemberID="viewController">
+                <navigationController title="Meme App" id="fc6-HY-6YY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table" image="table_30x30" landscapeImage="table_30x30" id="4xE-6q-yYF"/>
                     <navigationItem key="navigationItem" id="Rjc-bP-VIk"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -130,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="1017" y="-718"/>
         </scene>
-        <!--Meme Maker View Controller-->
+        <!--Meme App-->
         <scene sceneID="Lae-at-cuB">
             <objects>
-                <viewController storyboardIdentifier="newImage" id="Pdq-LL-24U" customClass="MemeMakerViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newImage" title="Meme App" id="Pdq-LL-24U" customClass="MemeMakerViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Mj-6A-YbZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="3658" y="-260"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Meme App-->
         <scene sceneID="vPT-Fd-UDQ">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="3cj-Ck-LkV" customClass="DetailViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" title="Meme App" id="3cj-Ck-LkV" customClass="DetailViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="738-Yk-yX3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="2824.8000000000002" y="-280.20989505247377"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Meme App-->
         <scene sceneID="sFa-4t-j8S">
             <objects>
-                <collectionViewController storyboardIdentifier="CollectionViewController" id="P12-Aa-o6D" customClass="MemeCollectionViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CollectionViewController" title="Meme App" id="P12-Aa-o6D" customClass="MemeCollectionViewController" customModule="Meme_V2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pST-p5-hAh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +334,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collection_30x30" width="30" height="30"/>
-        <image name="table_30x30" width="30" height="30"/>
+        <image name="collection_30x30" width="60" height="61"/>
+        <image name="table_30x30" width="60" height="60"/>
     </resources>
 </document>
